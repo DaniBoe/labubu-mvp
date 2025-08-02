@@ -1,0 +1,23 @@
+[
+  {
+    "id": "classic",
+    "title": "Classic Labubu",
+    "image": "/images/labubu-classic.jpg",
+    "description": "The Classic Labubu is the most iconic version of the Labubu series...",
+    "features": ["Height: ~10 cm", "Material: Vinyl", "Color Scheme: Beige, pink, and white"]
+  },
+  {
+    "id": "limited",
+    "title": "Halloween Labubu",
+    "image": "/images/labubu-limited.jpg",
+    "description": "This limited edition Halloween Labubu was released as part of a seasonal drop...",
+    "features": ["Glow-in-the-dark eyes", "Pumpkin accessory", "Released: October 2023"]
+  },
+  {
+    "id": "collabs",
+    "title": "Coca-Cola Labubu",
+    "image": "/images/labubu-coca-cola.jpg",
+    "description": "Labubu teams up with Coca-Cola for a fizzy fun collab...",
+    "features": ["Red & white color scheme", "Limited to 5000 units", "Includes mini soda can prop"]
+  }
+]
