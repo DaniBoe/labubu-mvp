@@ -15,7 +15,7 @@ export default function Limited() {
         <p>
           The Halloween Labubu is a rare and seasonal release that captures
           the spirit of October. With glowing eyes and a trickster’s charm,
-          it's a standout in any collection.
+          it&apos;s a standout in any collection.
         </p>
       </section>
       <section>
