@@ -14,7 +14,7 @@ export default function Home() {
       {/* --- Coming Soon Email Form with FormSubmit & Tool Selector --- */}
       <section style={{ marginTop: '3rem', textAlign: 'center' }}>
         <h2>🧪 Coming Soon: Labubu Tools</h2>
-        <p>We’re building new tools for serious collectors:</p>
+        <p>We are building new tools for serious collectors:</p>
         <ul style={{ listStyle: 'none', paddingLeft: 0, lineHeight: '1.8em' }}>
           <li>🔍 Fake Checker – verify if your Labubu is real</li>
           <li>📈 Price & Rarity Tracker – see current market value</li>

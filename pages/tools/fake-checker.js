@@ -14,7 +14,7 @@ export default function FakeCheckerComingSoon() {
 
       <div style={styles.container}>
         <h1>🔍 Fake Labubu Checker</h1>
-        <p>We're building a tool to help you verify if your Labubu is authentic.</p>
+        <p>We are building a tool to help you verify if your Labubu is authentic.</p>
         <EmailForm subject="Fake Checker Signup" />
         <BackLink />
       </div>
