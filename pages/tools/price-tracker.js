@@ -1,16 +1,13 @@
-import Layout from '@/components/Layout';
 import Link from 'next/link';
 
 export default function PriceTrackerComingSoon() {
   return (
-    <Layout>
-      <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-        <h1>💸 Labubu Price Tracker</h1>
-        <p>Track Labubu resale values over time across different platforms.</p>
-        <EmailForm subject="Price Tracker Signup" />
-        <BackLink />
-      </div>
-    </Layout>
+    <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+      <h1>💸 Labubu Price Tracker</h1>
+      <p>Track Labubu resale values over time across different platforms.</p>
+      <EmailForm subject="Price Tracker Signup" />
+      <BackLink />
+    </div>
   );
 }
 

@@ -1,13 +1,25 @@
-import Layout from '@/components/Layout';
 import Image from 'next/image';
+import Head from 'next/head';
 import labubuLimited from '@/public/images/labubu-limited.jpg';
 
 export default function Limited() {
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>Halloween Labubu | Limited Edition Collectible</title>
+        <meta
+          name="description"
+          content="Explore the spooky limited-edition Halloween Labubu with glowing eyes and trickster charm. A rare seasonal vinyl figure release."
+        />
+      </Head>
+
       <h1>Limited Edition Labubu – Halloween</h1>
       <figure>
-        <Image src={labubuLimited} alt="Halloween Labubu Figure" width={400} />
+        <Image
+          src={labubuLimited}
+          alt="Halloween Labubu Figure"
+          width={400}
+        />
         <figcaption>The spooky limited-edition Halloween Labubu.</figcaption>
       </figure>
       <section>
@@ -26,6 +38,6 @@ export default function Limited() {
           <li>Color Scheme: Black, orange, and green</li>
         </ul>
       </section>
-    </Layout>
+    </>
   );
 }

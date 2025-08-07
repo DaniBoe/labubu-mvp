@@ -1,16 +1,13 @@
-import Layout from '@/components/Layout';
 import Link from 'next/link';
 
 export default function RestockAlertsComingSoon() {
   return (
-    <Layout>
-      <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-        <h1>📦 Labubu Restock Alerts</h1>
-        <p>Get notified when popular Labubus are restocked at your favorite shops.</p>
-        <EmailForm subject="Restock Alert Signup" />
-        <BackLink />
-      </div>
-    </Layout>
+    <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+      <h1>📦 Labubu Restock Alerts</h1>
+      <p>Get notified when popular Labubus are restocked at your favorite shops.</p>
+      <EmailForm subject="Restock Alert Signup" />
+      <BackLink />
+    </div>
   );
 }
 

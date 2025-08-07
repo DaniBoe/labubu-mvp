@@ -1,13 +1,25 @@
-import Layout from '@/components/Layout';
 import Image from 'next/image';
 import labubuCocaCola from '@/public/images/labubu-collab.jpg';
+import Head from 'next/head';
 
 export default function Collabs() {
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>Labubu Coca-Cola Edition | Labubu Collection</title>
+        <meta
+          name="description"
+          content="Discover the exclusive Labubu Coca-Cola collaboration figure. A must-have collectible from 2022."
+        />
+      </Head>
+
       <h1>Labubu Collaboration – Coca-Cola Edition</h1>
       <figure>
-        <Image src={labubuCocaCola} alt="Labubu Coca-Cola Collab Figure" width={400} />
+        <Image
+          src={labubuCocaCola}
+          alt="Labubu Coca-Cola Collab Figure"
+          width={400}
+        />
         <figcaption>The exclusive Labubu x Coca-Cola collectible figure.</figcaption>
       </figure>
       <section>
@@ -28,6 +40,6 @@ export default function Collabs() {
           <li>Limited edition run</li>
         </ul>
       </section>
-    </Layout>
+    </>
   );
 }

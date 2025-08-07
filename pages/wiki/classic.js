@@ -1,11 +1,10 @@
-import Layout from '@/components/Layout';
 import Head from 'next/head';
 import Image from 'next/image';
 import labubuClassic from '@/public/images/labubu-classic.jpg';
 
 export default function Classic() {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Classic Labubu | Labubu Collection</title>
         <meta name="description" content="Explore the iconic Classic Labubu figure, a favorite among collectors." />
@@ -32,31 +31,6 @@ export default function Classic() {
           <li>Color Scheme: Beige, pink, and white</li>
         </ul>
       </section>
-    </Layout>
+    </>
   );
 }
-
-
-
-/*
-import Layout from '@/components/Layout';
-import Image from 'next/image';
-import Navbar from '@/components/Navbar';
-
-export default function Classic() {
-  return (
-    <Layout>
-      <h1>Classic Wiki</h1>
-      <p>The original Labubu design from Pop Mart. Known for its mischievous grin and jungle vibes.</p>
-
-      <Image
-        src="/images/labubu-classic.jpg"
-        width={500}
-        height={500}
-        alt="Labubu Classic"
-        style={{ borderRadius: '10px', marginTop: '1rem' }}
-      />
-    </Layout>
-  );
-}
-  */
