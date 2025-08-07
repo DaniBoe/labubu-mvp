@@ -58,7 +58,7 @@ export default function Home() {
             }}
           >
             <option value="" disabled>
-              Select the tool you're most excited about
+              Select the tool you are most excited about
             </option>
             <option value="Fake Checker">🔍 Fake Checker</option>
             <option value="Price Tracker">📈 Price & Rarity Tracker</option>
