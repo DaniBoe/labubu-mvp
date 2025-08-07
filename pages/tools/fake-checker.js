@@ -5,16 +5,18 @@ export default function FakeCheckerComingSoon() {
   return (
     <>
       <Head>
-        <title>Fake Labubu Checker | Coming Soon</title>
+        <title>Fake Labubu Checker — Spot a Fake Labubu Figure | Coming Soon</title>
         <meta
           name="description"
-          content="We're building a tool to verify the authenticity of your Labubu figures. Sign up to be notified when it's ready."
+          content="Wondering if your Labubu figure is real or fake? Our Fake Labubu Checker helps you spot counterfeit figures. Sign up now to be notified when it launches!"
         />
       </Head>
 
       <div style={styles.container}>
-        <h1>🔍 Fake Labubu Checker</h1>
-        <p>We are building a tool to help you verify if your Labubu is authentic.</p>
+        <h1>🔍 Fake Labubu Checker — How to Spot a Fake Labubu Figure</h1>
+        <p>
+          Concerned about Labubu authenticity? Our tool will help you identify fake Labubu collectibles quickly and easily.
+        </p>
         <EmailForm subject="Fake Checker Signup" />
         <BackLink />
       </div>
@@ -39,6 +41,7 @@ function EmailForm({ subject }) {
         required
         placeholder="Enter your email"
         style={styles.input}
+        aria-label="Email address"
       />
       <br /><br />
       <button type="submit" style={styles.button}>Notify Me</button>
@@ -66,7 +69,7 @@ const styles = {
     padding: '0.5rem',
     width: '250px',
     borderRadius: '4px',
-    border: '1px solid #ccc',
+    border: '1px solid #ccc', // <-- fix this quote if copy-pasting
   },
   button: {
     padding: '0.5rem 1rem',
