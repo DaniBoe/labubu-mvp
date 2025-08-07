@@ -26,11 +26,15 @@ export default function Layout({ children }) {
         {/* Header */}
         <header style={{ background: '#333', padding: '1rem' }}>
           <nav style={{ display: 'flex', gap: '1rem' }}>
-            <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-            <Link href="/wiki/classic" style={{ color: 'white', textDecoration: 'none' }}>Classic</Link>
-            <Link href="/wiki/collabs" style={{ color: 'white', textDecoration: 'none' }}>Collabs</Link>
-            <Link href="/wiki/limited" style={{ color: 'white', textDecoration: 'none' }}>Limited</Link>
-          </nav>
+  <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
+  <Link href="/wiki/classic" style={{ color: 'white', textDecoration: 'none' }}>Classic</Link>
+  <Link href="/wiki/collabs" style={{ color: 'white', textDecoration: 'none' }}>Collabs</Link>
+  <Link href="/wiki/limited" style={{ color: 'white', textDecoration: 'none' }}>Limited</Link>
+  <Link href="/tools/fake-checker" style={{ color: 'white', textDecoration: 'none' }}>Fake Checker</Link>
+  <Link href="/tools/price-tracker" style={{ color: 'white', textDecoration: 'none' }}>Price Tracker</Link>
+  <Link href="/tools/restock-alert" style={{ color: 'white', textDecoration: 'none' }}>Restock Alert</Link>
+</nav>
+
         </header>
 
         {/* Page Content */}
@@ -40,7 +44,7 @@ export default function Layout({ children }) {
 
         {/* Footer */}
         <footer style={{ background: '#eee', padding: '1rem', textAlign: 'center' }}>
-          <p style={{ margin: 0 }}>© 2025 Wiki MVP</p>
+          <p style={{ margin: 0 }}>© 2025 Labubu World MVP</p>
         </footer>
       </div>
     </>

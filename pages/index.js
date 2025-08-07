@@ -13,7 +13,7 @@ export default function Home() {
           <Link href="wiki/collabs">🥤 Collab Labubu</Link>
         </div>
 
-        {/* --- Coming Soon Email Form with FormSubmit & Redirect --- */}
+        {/* --- Coming Soon Email Form with FormSubmit & Tool Selector --- */}
         <section style={{ marginTop: '3rem', textAlign: 'center' }}>
           <h2>🧪 Coming Soon: Labubu Tools</h2>
           <p>We’re building new tools for serious collectors:</p>
@@ -47,6 +47,25 @@ export default function Home() {
                 border: '1px solid #ccc',
               }}
             />
+
+            <select
+              name="preferred_tool"
+              required
+              defaultValue=""
+              style={{
+                padding: '0.5rem',
+                width: '260px',
+                borderRadius: '4px',
+                border: '1px solid #ccc',
+              }}
+            >
+              <option value="" disabled>
+                Select the tool you're most excited about
+              </option>
+              <option value="Fake Checker">🔍 Fake Checker</option>
+              <option value="Price Tracker">📈 Price & Rarity Tracker</option>
+              <option value="Restock Alerts">🛍️ Restock Alerts</option>
+            </select>
 
             {/* Redirect after submit */}
             <input
