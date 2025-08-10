@@ -1,52 +1,56 @@
-import Script from 'next/script';
-import Link from 'next/link';
+"use client"
+
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 export default function Layout({ children }) {
+  const router = useRouter()
+
   return (
     <>
-      {/* Google tag (gtag.js) */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-091V0NEBMX"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-091V0NEBMX');
-          `,
-        }}
-      />
+      <Head>
+        <title>Your Site Name</title>
+        <meta name="description" content="Your site description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <div style={{ fontFamily: 'Arial', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        {/* Header */}
-        <header style={{ background: '#333', padding: '1rem' }}>
-          <nav style={{ display: 'flex', gap: '1rem' }}>
-  <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-  <Link href="/wiki/classic" style={{ color: 'white', textDecoration: 'none' }}>Classic</Link>
-  <Link href="/wiki/collabs" style={{ color: 'white', textDecoration: 'none' }}>Collabs</Link>
-  <Link href="/wiki/limited" style={{ color: 'white', textDecoration: 'none' }}>Limited</Link>
-  <Link href="/tools/fake-checker" style={{ color: 'white', textDecoration: 'none' }}>Fake Checker</Link>
-  <Link href="/tools/price-tracker" style={{ color: 'white', textDecoration: 'none' }}>Price Tracker</Link>
-  <Link href="/tools/restock-alert" style={{ color: 'white', textDecoration: 'none' }}>Restock Alert</Link>
-</nav>
+      <header className="border-b">
+        <nav className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-xl font-bold">
+              Your Site
+            </Link>
 
-        </header>
+            <div className="flex items-center space-x-6">
+              <Link href="/" className={`hover:text-primary ${router.pathname === "/" ? "text-primary" : ""}`}>
+                Home
+              </Link>
+              <Link
+                href="/tools"
+                className={`hover:text-primary ${router.pathname.startsWith("/tools") ? "text-primary" : ""}`}
+              >
+                Tools
+              </Link>
+              <Link
+                href="/tools/fake-checker"
+                className="bg-emerald-600 text-white px-4 py-2 rounded-md hover:bg-emerald-700"
+              >
+                Fake Checker
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </header>
 
-        {/* Page Content */}
-        <main style={{ flex: 1, padding: '2rem' }}>
-          {children}
-        </main>
+      <main>{children}</main>
 
-        {/* Footer */}
-        <footer style={{ background: '#eee', padding: '1rem', textAlign: 'center' }}>
-          <p style={{ margin: 0 }}>© 2025 Labubu World MVP</p>
-        </footer>
-      </div>
+      <footer className="border-t mt-12">
+        <div className="container mx-auto px-4 py-8 text-center text-muted-foreground">
+          <p>&copy; 2024 Your Site Name. All rights reserved.</p>
+        </div>
+      </footer>
     </>
-  );
+  )
 }
