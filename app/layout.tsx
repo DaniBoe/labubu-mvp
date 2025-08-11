@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Header } from "@/components/header"
+import { HeaderWorking } from "@/components/header-working"
 import { Footer } from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: "LabubuWiki - Complete Guide to Labubu Collectibles",
   description:
     "The ultimate resource for Labubu collectors. Explore series, check authenticity, track prices, and connect with the community.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -25,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="min-h-screen flex flex-col">
-            <Header />
+            <HeaderWorking />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>

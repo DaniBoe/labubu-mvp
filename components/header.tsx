@@ -6,19 +6,30 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Search, Menu, BookOpen, Wrench, Users, TrendingUp, ShieldCheck, Bell, Heart, Sparkles } from "lucide-react"
-import { cn } from "@/lib/utils"
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import {
+  Search,
+  Menu,
+  BookOpen,
+  Wrench,
+  Users,
+  TrendingUp,
+  ShieldCheck,
+  Bell,
+  Heart,
+  Sparkles,
+  ChevronDown,
+} from "lucide-react"
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -37,68 +48,117 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex mx-6">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Wiki</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <Link
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/wiki"
-                      >
-                        <BookOpen className="h-6 w-6" />
-                        <div className="mb-2 mt-4 text-lg font-medium">Complete Database</div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          Explore all Labubu series, variants, and collectibles with detailed information.
-                        </p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                  <ListItem href="/wiki/series" title="Series Guide">
-                    Browse all official Labubu series and collections
-                  </ListItem>
-                  <ListItem href="/wiki/variants" title="Variants & Rarities">
-                    Discover rare variants and special editions
-                  </ListItem>
-                  <ListItem href="/wiki/timeline" title="Release Timeline">
-                    Track release dates and upcoming drops
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+        <nav className="hidden md:flex mx-6 items-center space-x-6">
+          {/* Wiki Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="flex items-center gap-1 h-10">
+                Wiki
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-80">
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <BookOpen className="h-5 w-5 text-primary" />
+                  <span className="font-semibold">Complete Database</span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Explore all Labubu series, variants, and collectibles with detailed information.
+                </p>
+              </div>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link href="/wiki/series" className="flex items-center gap-2 p-3 cursor-pointer">
+                  <div className="w-2 h-2 rounded-full bg-pink-500" />
+                  <div>
+                    <div className="font-medium">Series Guide</div>
+                    <div className="text-sm text-muted-foreground">Browse all official Labubu series</div>
+                  </div>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/wiki/variants" className="flex items-center gap-2 p-3 cursor-pointer">
+                  <div className="w-2 h-2 rounded-full bg-purple-500" />
+                  <div>
+                    <div className="font-medium">Variants & Rarities</div>
+                    <div className="text-sm text-muted-foreground">Discover rare variants and special editions</div>
+                  </div>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/wiki/timeline" className="flex items-center gap-2 p-3 cursor-pointer">
+                  <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                  <div>
+                    <div className="font-medium">Release Timeline</div>
+                    <div className="text-sm text-muted-foreground">Track release dates and upcoming drops</div>
+                  </div>
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <ListItem href="/tools/fake-checker" title="Fake Checker" icon={<ShieldCheck className="h-4 w-4" />}>
-                    AI-powered authenticity verification
-                  </ListItem>
-                  <ListItem href="/tools/price-tracker" title="Price Tracker" icon={<TrendingUp className="h-4 w-4" />}>
-                    Monitor market prices and trends
-                  </ListItem>
-                  <ListItem href="/tools/wishlist" title="Wishlist" icon={<Heart className="h-4 w-4" />}>
-                    Track your wanted items
-                  </ListItem>
-                  <ListItem href="/tools/alerts" title="Price Alerts" icon={<Bell className="h-4 w-4" />}>
-                    Get notified of price drops
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+          {/* Tools Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="flex items-center gap-1 h-10">
+                Tools
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-80">
+              <div className="grid grid-cols-2 gap-2 p-2">
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/tools/fake-checker"
+                    className="flex flex-col items-start gap-2 p-3 h-auto cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                      <span className="font-medium">Fake Checker</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">AI-powered authenticity verification</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/tools/price-tracker"
+                    className="flex flex-col items-start gap-2 p-3 h-auto cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      <TrendingUp className="h-4 w-4 text-blue-600" />
+                      <span className="font-medium">Price Tracker</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Monitor market prices and trends</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/tools/wishlist" className="flex flex-col items-start gap-2 p-3 h-auto cursor-pointer">
+                    <div className="flex items-center gap-2">
+                      <Heart className="h-4 w-4 text-pink-600" />
+                      <span className="font-medium">Wishlist</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Track your wanted items</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/tools/alerts" className="flex flex-col items-start gap-2 p-3 h-auto cursor-pointer">
+                    <div className="flex items-center gap-2">
+                      <Bell className="h-4 w-4 text-orange-600" />
+                      <span className="font-medium">Price Alerts</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Get notified of price drops</span>
+                  </Link>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-            <NavigationMenuItem>
-              <Link href="/community" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Community
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+          {/* Community Link */}
+          <Link href="/community" className="text-sm font-medium transition-colors hover:text-primary">
+            Community
+          </Link>
+        </nav>
 
         {/* Search */}
         <div className="flex flex-1 items-center justify-end space-x-4">
@@ -116,54 +176,47 @@ export function Header() {
           </div>
 
           {/* Mobile Menu */}
-          <Sheet>
-            <SheetTrigger asChild>
+          <Dialog open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <DialogTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[400px]">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold">Menu</h2>
+              </div>
               <nav className="flex flex-col space-y-4">
-                <Link href="/wiki" className="flex items-center space-x-2 text-lg font-medium">
+                <Link
+                  href="/wiki"
+                  className="flex items-center space-x-2 text-lg font-medium hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   <BookOpen className="h-5 w-5" />
                   <span>Wiki</span>
                 </Link>
-                <Link href="/tools" className="flex items-center space-x-2 text-lg font-medium">
+                <Link
+                  href="/tools"
+                  className="flex items-center space-x-2 text-lg font-medium hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   <Wrench className="h-5 w-5" />
                   <span>Tools</span>
                 </Link>
-                <Link href="/community" className="flex items-center space-x-2 text-lg font-medium">
+                <Link
+                  href="/community"
+                  className="flex items-center space-x-2 text-lg font-medium hover:text-primary"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   <Users className="h-5 w-5" />
                   <span>Community</span>
                 </Link>
               </nav>
-            </SheetContent>
-          </Sheet>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </header>
-  )
-}
-
-const ListItem = ({ className, title, children, icon, ...props }: any) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <Link
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
-          )}
-          {...props}
-        >
-          <div className="flex items-center space-x-2">
-            {icon}
-            <div className="text-sm font-medium leading-none">{title}</div>
-          </div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
   )
 }

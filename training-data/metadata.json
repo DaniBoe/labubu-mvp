@@ -1,0 +1,398 @@
+[
+  {
+    "id": "sample_1754866532288_0",
+    "filename": "series_1_original_pink_authentic_front.jpg",
+    "series": "Series 1",
+    "variant": "Original Pink",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 95,
+      "sculptDetails": 92,
+      "packagingAuth": 98,
+      "materialTexture": 94
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.288Z"
+  },
+  {
+    "id": "sample_1754866532290_1",
+    "filename": "series_1_blue_variant_authentic_front.jpg",
+    "series": "Series 1",
+    "variant": "Blue Variant",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 93,
+      "sculptDetails": 90,
+      "packagingAuth": 96,
+      "materialTexture": 92
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.290Z"
+  },
+  {
+    "id": "sample_1754866532290_2",
+    "filename": "series_1_original_pink_authentic_packaging.jpg",
+    "series": "Series 1",
+    "variant": "Original Pink",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "packaging",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 95,
+      "sculptDetails": 92,
+      "packagingAuth": 99,
+      "materialTexture": 94
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.290Z"
+  },
+  {
+    "id": "sample_1754866532290_3",
+    "filename": "series_1_original_pink_fake_front.jpg",
+    "series": "Series 1",
+    "variant": "Original Pink",
+    "authenticity": "fake",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 45,
+      "sculptDetails": 38,
+      "packagingAuth": 25,
+      "materialTexture": 42
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.290Z"
+  },
+  {
+    "id": "sample_1754866532290_4",
+    "filename": "series_1_blue_variant_fake_front.jpg",
+    "series": "Series 1",
+    "variant": "Blue Variant",
+    "authenticity": "fake",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 52,
+      "sculptDetails": 41,
+      "packagingAuth": 30,
+      "materialTexture": 48
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.290Z"
+  },
+  {
+    "id": "sample_1754866532291_5",
+    "filename": "series_2_forest_green_authentic_front.jpg",
+    "series": "Series 2",
+    "variant": "Forest Green",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 96,
+      "sculptDetails": 94,
+      "packagingAuth": 97,
+      "materialTexture": 95
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.291Z"
+  },
+  {
+    "id": "sample_1754866532291_6",
+    "filename": "series_2_autumn_orange_authentic_side.jpg",
+    "series": "Series 2",
+    "variant": "Autumn Orange",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "side",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 94,
+      "sculptDetails": 91,
+      "packagingAuth": 95,
+      "materialTexture": 93
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.291Z"
+  },
+  {
+    "id": "sample_1754866532291_7",
+    "filename": "series_2_forest_green_fake_front.jpg",
+    "series": "Series 2",
+    "variant": "Forest Green",
+    "authenticity": "fake",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 38,
+      "sculptDetails": 35,
+      "packagingAuth": 20,
+      "materialTexture": 40
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.291Z"
+  },
+  {
+    "id": "sample_1754866532292_8",
+    "filename": "series_3_space_blue_authentic_front.jpg",
+    "series": "Series 3",
+    "variant": "Space Blue",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 97,
+      "sculptDetails": 95,
+      "packagingAuth": 99,
+      "materialTexture": 96
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.292Z"
+  },
+  {
+    "id": "sample_1754866532292_9",
+    "filename": "series_3_cosmic_purple_authentic_detail.jpg",
+    "series": "Series 3",
+    "variant": "Cosmic Purple",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "detail",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 96,
+      "sculptDetails": 94,
+      "packagingAuth": 98,
+      "materialTexture": 95
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.292Z"
+  },
+  {
+    "id": "sample_1754866532292_10",
+    "filename": "series_3_space_blue_fake_front.jpg",
+    "series": "Series 3",
+    "variant": "Space Blue",
+    "authenticity": "fake",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 42,
+      "sculptDetails": 39,
+      "packagingAuth": 28,
+      "materialTexture": 44
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.292Z"
+  },
+  {
+    "id": "sample_1754866532293_11",
+    "filename": "series_4_fairy_pink_authentic_front.jpg",
+    "series": "Series 4",
+    "variant": "Fairy Pink",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 95,
+      "sculptDetails": 93,
+      "packagingAuth": 97,
+      "materialTexture": 94
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.293Z"
+  },
+  {
+    "id": "sample_1754866532293_12",
+    "filename": "series_4_fairy_pink_fake_front.jpg",
+    "series": "Series 4",
+    "variant": "Fairy Pink",
+    "authenticity": "fake",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 48,
+      "sculptDetails": 44,
+      "packagingAuth": 32,
+      "materialTexture": 46
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.293Z"
+  },
+  {
+    "id": "sample_1754866532293_13",
+    "filename": "series_5_ocean_teal_authentic_front.jpg",
+    "series": "Series 5",
+    "variant": "Ocean Teal",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 94,
+      "sculptDetails": 92,
+      "packagingAuth": 96,
+      "materialTexture": 93
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.293Z"
+  },
+  {
+    "id": "sample_1754866532293_14",
+    "filename": "series_6_monster_purple_authentic_front.jpg",
+    "series": "Series 6",
+    "variant": "Monster Purple",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 98,
+      "sculptDetails": 96,
+      "packagingAuth": 99,
+      "materialTexture": 97
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.293Z"
+  },
+  {
+    "id": "sample_1754866532293_15",
+    "filename": "series_6_monster_green_authentic_packaging.jpg",
+    "series": "Series 6",
+    "variant": "Monster Green",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "packaging",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 98,
+      "sculptDetails": 96,
+      "packagingAuth": 100,
+      "materialTexture": 97
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.293Z"
+  },
+  {
+    "id": "sample_1754866532293_16",
+    "filename": "series_6_monster_purple_fake_front.jpg",
+    "series": "Series 6",
+    "variant": "Monster Purple",
+    "authenticity": "fake",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "front",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 35,
+      "sculptDetails": 32,
+      "packagingAuth": 18,
+      "materialTexture": 38
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.293Z"
+  },
+  {
+    "id": "sample_1754866532294_17",
+    "filename": "series_1_yellow_special_authentic_side.jpg",
+    "series": "Series 1",
+    "variant": "Yellow Special",
+    "authenticity": "authentic",
+    "source": "sample_data_generator",
+    "metadata": {
+      "angle": "side",
+      "quality": "high",
+      "lighting": "natural",
+      "background": "clean"
+    },
+    "features": {
+      "paintQuality": 94,
+      "sculptDetails": 91,
+      "packagingAuth": 97,
+      "materialTexture": 93
+    },
+    "status": "approved",
+    "uploadedAt": "2025-08-10T22:55:32.294Z"
+  }
+]
