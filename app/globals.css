@@ -152,3 +152,10 @@
 .gradient-text {
   @apply bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent;
 }
+
+/* New: Class to grey out and disable elements */
+.fake-checker-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(100%);
+}

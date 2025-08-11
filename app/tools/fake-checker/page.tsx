@@ -22,8 +22,10 @@ import {
   Sparkles,
   TrendingUp,
   Share2,
+  Info,
 } from "lucide-react"
 import { CameraCapture } from "@/components/camera-capture"
+import { useAnalytics } from "@/hooks/use-analytics" // Ensure this import is present
 
 interface AnalysisResult {
   authenticity: "authentic" | "fake" | "uncertain"
@@ -42,13 +44,19 @@ interface AnalysisResult {
   rarity?: string
 }
 
+// Set this to true to disable the fake checker
+const IS_FAKE_CHECKER_DISABLED = true
+
 export default function FakeCheckerPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null)
   const [activeTab, setActiveTab] = useState("upload")
+  const { trackEvent, trackFakeChecker } = useAnalytics() // Destructure useAnalytics
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (IS_FAKE_CHECKER_DISABLED) return // Prevent upload if disabled
+
     const file = event.target.files?.[0]
     if (file) {
       const reader = new FileReader()
@@ -58,15 +66,31 @@ export default function FakeCheckerPage() {
         analyzeImage(imageData)
       }
       reader.readAsDataURL(file)
+
+      trackEvent({
+        action: "image_uploaded",
+        category: "Fake Checker",
+        label: "file_upload",
+      })
     }
   }
 
   const handleCameraCapture = (imageData: string) => {
+    if (IS_FAKE_CHECKER_DISABLED) return // Prevent capture if disabled
+
     setSelectedImage(imageData)
     analyzeImage(imageData)
+
+    trackEvent({
+      action: "image_captured",
+      category: "Fake Checker",
+      label: "camera_capture",
+    })
   }
 
   const analyzeImage = async (imageData: string) => {
+    if (IS_FAKE_CHECKER_DISABLED) return // Prevent analysis if disabled
+
     setIsAnalyzing(true)
     setAnalysisResult(null)
 
@@ -114,8 +138,14 @@ export default function FakeCheckerPage() {
       }
 
       setAnalysisResult(mockResult)
+      trackFakeChecker(mockResult.authenticity === "authentic" ? "authentic" : "counterfeit")
     } catch (error) {
       console.error("Analysis failed:", error)
+      trackEvent({
+        action: "analysis_failed",
+        category: "Fake Checker",
+        label: "error",
+      })
     } finally {
       setIsAnalyzing(false)
     }
@@ -128,11 +158,16 @@ export default function FakeCheckerPage() {
         text: `My Labubu analysis: ${analysisResult.authenticity} (${analysisResult.confidence.toFixed(1)}% confidence)`,
         url: window.location.href,
       })
+      trackEvent({
+        action: "results_shared",
+        category: "Fake Checker",
+        label: "social_share",
+      })
     }
   }
 
   return (
-    <div className="container mx-auto py-8 px-4 max-w-4xl">
+    <div className={`container mx-auto py-8 px-4 max-w-4xl ${IS_FAKE_CHECKER_DISABLED ? "fake-checker-disabled" : ""}`}>
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">🔍 Labubu Fake Checker</h1>
         <p className="text-xl text-muted-foreground mb-2">
@@ -140,6 +175,15 @@ export default function FakeCheckerPage() {
         </p>
         <p className="text-sm text-muted-foreground">Upload a photo or use your camera to get instant analysis</p>
       </div>
+
+      {IS_FAKE_CHECKER_DISABLED && (
+        <Alert className="mb-8 border-blue-200 bg-blue-50 text-blue-800">
+          <Info className="h-4 w-4 text-blue-600" />
+          <AlertDescription className="font-medium">
+            The Fake Checker is currently undergoing maintenance for AI model upgrades. Please check back soon!
+          </AlertDescription>
+        </Alert>
+      )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
         <TabsList className="grid w-full grid-cols-2">
@@ -161,7 +205,14 @@ export default function FakeCheckerPage() {
             </CardHeader>
             <CardContent>
               <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-muted-foreground/50 transition-colors">
-                <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" id="image-upload" />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                  id="image-upload"
+                  disabled={IS_FAKE_CHECKER_DISABLED}
+                />
                 <label htmlFor="image-upload" className="cursor-pointer">
                   <Upload className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                   <div className="text-lg font-medium mb-2">Drop your image here</div>
@@ -174,7 +225,11 @@ export default function FakeCheckerPage() {
 
         <TabsContent value="camera" className="space-y-6">
           <div className="flex justify-center">
-            <CameraCapture onCapture={handleCameraCapture} isAnalyzing={isAnalyzing} />
+            <CameraCapture
+              onCapture={handleCameraCapture}
+              isAnalyzing={isAnalyzing}
+              isDisabled={IS_FAKE_CHECKER_DISABLED}
+            />
           </div>
         </TabsContent>
       </Tabs>

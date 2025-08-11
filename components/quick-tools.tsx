@@ -13,6 +13,7 @@ const tools = [
     badge: "Popular",
     color: "from-emerald-500 to-teal-600",
     features: ["99% accuracy", "Instant results", "Multiple angles"],
+    isDisabled: true, // Added this property
   },
   {
     icon: <TrendingUp className="h-6 w-6" />,
@@ -74,7 +75,10 @@ export function QuickTools() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {tools.map((tool, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
+            <Card
+              key={index}
+              className={`group hover:shadow-lg transition-all duration-300 overflow-hidden ${tool.isDisabled ? "fake-checker-disabled" : ""}`}
+            >
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between">
                   <div className={`p-3 rounded-lg bg-gradient-to-br ${tool.color} text-white`}>{tool.icon}</div>
@@ -100,7 +104,7 @@ export function QuickTools() {
                   ))}
                 </ul>
 
-                <Button asChild className="w-full group">
+                <Button asChild className="w-full group" disabled={tool.isDisabled}>
                   <Link href={tool.href}>
                     Try Now
                     <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
