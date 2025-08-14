@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import type React from "react"
 import { Hero } from "@/components/hero"
 import { FeaturedSeries } from "@/components/featured-series"
@@ -45,7 +46,15 @@ type AnalysisResult = {
   notes: string[]
 }
 
+
+
 export default function HomePage() {
+ useEffect(() => {
+    console.log("GA ID from env:", process.env.NEXT_PUBLIC_GA_ID)
+  }, [])
+
+
+
   return (
     <>
       <Hero />

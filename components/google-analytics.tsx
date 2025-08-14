@@ -1,27 +1,39 @@
 "use client"
 
 import Script from "next/script"
-import { GA_TRACKING_ID } from "@/lib/gtag"
+import { usePathname } from "next/navigation"
+import { useEffect } from "react"
+import { GA_TRACKING_ID, trackPageView } from "@/lib/gtag"
 
 export default function GoogleAnalytics() {
-  if (!GA_TRACKING_ID) {
-    return null
-  }
+  const pathname = usePathname()
+
+  // SPA pageview tracking
+  useEffect(() => {
+    if (pathname) {
+      trackPageView(pathname)
+    }
+  }, [pathname])
+
+  if (!GA_TRACKING_ID) return null
 
   return (
     <>
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+      {/* Load GA library */}
       <Script
-        id="google-analytics"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+
+      {/* Initialize gtag */}
+      <Script
+        id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
           `,
         }}
       />

@@ -2,19 +2,22 @@
 
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { pageview, event, trackFakeChecker, trackPageView } from "@/lib/gtag"
+import { trackEvent, trackFakeChecker, trackPageView } from "@/lib/gtag"
+import * as gtag from "@/lib/gtag"
+console.log(gtag)
+
 
 export function useAnalytics() {
   const pathname = usePathname()
 
   useEffect(() => {
     if (pathname) {
-      pageview(pathname)
+      trackPageView(pathname)
     }
   }, [pathname])
 
   return {
-    trackEvent: event,
+    trackEvent,
     trackFakeChecker,
     trackPageView,
   }
